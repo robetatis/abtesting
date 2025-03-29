@@ -1,0 +1,51 @@
+AB testing
+- AB tests are SHORT-TERM analyses of the effect of changes on EXISTING experiences in the app/service
+- metrics
+  - what metric? -> 3 ingredients:
+    - action we're measuring: click, view, post, ...
+    - unit of analysis: users, unique users, sessions, sessions by unique users, time and space: users per day in location x
+    - statistical function: total, average, max, quantiles, ...
+  - frameworks for deriving experiment metrics/KPIs
+    - AARG framework: acquire > activate > retain > refer > revenue
+    - heart framework (google): happiness, engagement, acquisition, retention, task success
+  - hierarchy of metrics in AB test
+    - primary/north-star metric: overarching business metric, typically has longer cycles, therefore not typically used in AB tests
+    - driver metric: product metric, used directly in experiments
+    - guardrail metrics: the things you don't want to change/break with the change you're testing: bounce rate, app response time, etc.
+        in the end, experiment goal is to check if a change improves specific aspects of the product without negatively affecting
+        anything else
+    - secondary metrics: help explain changes in the driver metric. used for articulating causal chain
+  - segmentation: **this is crucial**. the effects we're looking for may exist only in specific segments.
+  -more details on metrics:
+    - north-star metric: has business value and value for users at the same time
+    - driver metric:
+      - product-level or feature-level metric that proxies north-start metric in the short-term
+      - example:
+            north-star metric                   driver metric
+            annual number of search queries     average daily search queries per user
+            total minutes consumed in service   average daily minutes per user
+    - guardrail metrics: used for measuring trade-offs. we want to improve driver metric with as little negative impact as possible to other metrics 
+        - AB tests happen within the broader business context
+        - we need to track what happens beyond our driver metric
+        - types of guardrails:
+            - business metric: aim to track directly the money value of the improvement in driver metric
+            - validity metrics: bias detection: novelty effect, change-aversion effect
+                example: AB test of a new recommender system to increase engagement
+                    - north-star: total subscribers per year
+                    - driver: average daily minutes per user
+                    - guardrails:
+                        - business: revenue per day, signups per day, cancellations per day
+                        - validity: sample ratio mismatch, AA-test, novelty-effect check
+    - secondary metrics: capture what's happening overall to the product during the test. kind of similar to guardrails, but not specifically targeting things we want to avoid
+
+
+
+
+
+
+
+
+
+
+
+
